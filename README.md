@@ -1,6 +1,6 @@
 # International Social Survey Programme
 
-## Social Attitudes Survey New Zealand
+# Social Attitudes Survey New Zealand
 
 COMPASS has run the ISSP survey for New Zealand since 2013. The ISSP is a continuing annual programme of cross-national collaboration on surveys covering topics important for social science research [(http://www.issp.org)](http://www.issp.org). It brings together pre-existing social science projects and coordinates research goals, thereby adding a cross-national, cross-cultural perspective to the individual national studies. ISSP researchers especially concentrate on developing questions that are meaningful and relevant to all countries, and can be expressed in an equivalent manner in all relevant languages. There are 48 countries that contribute data to the ISSP. COMPASS became a member officially in 2016. We have rebranded the survey as the Social Attitudes Survey New Zealand for an audience unfamiliar with the ISSP.
 
@@ -12,3 +12,16 @@ Further specific information on the surveys that we as COMPASS have run has come
 Links to the Shiny apps: 
 
 
+
+<font size="3">
+Latest Update: \ 
+2018-07-20
+
+Contact email: \
+Barry Milne [<b.milne@auckland.ac.nz>](mailto:b.milne@auckland.ac.nz)
+
+Kevin Chang [<k.chang@auckland.ac.nz>](mailto:k.chang@auckland.ac.nz)
+</font>
+
+
+<a href="http://www.arts.auckland.ac.nz/en/about/our-research/research-centres-and-archives/compass.html" target="_blank"> <img src="compass.png" width="200" height="80" /></a>

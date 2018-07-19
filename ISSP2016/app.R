@@ -54,6 +54,8 @@ ui <- dashboardPage(
 # Define server logic required to draw a histogram
 server <- function(input, output) {
   
+  
+  
   output$distPlot <- renderPlot({
     dat$X <- datRaw %>%
       pull(names(fullName[fullName == req(input$varname)]))
