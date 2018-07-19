@@ -1,0 +1,13 @@
+name: issp2016
+title:
+username:
+account: compassnz
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 383341
+bundleId: 1488323
+url: https://compassnz.shinyapps.io/issp2016/
+when: 1531970886.2112
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: app.Rmd
