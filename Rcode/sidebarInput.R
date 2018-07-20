@@ -13,7 +13,6 @@ sidebarInput <- function(id) {
       choices = c(Choose = '', fullNameForSelect),
       selectize = TRUE
     ),
-    
     selectInput(
       ns("stratified"),
       label = HTML('<font size=\"4\"> stratified by </font>'),
@@ -25,7 +24,6 @@ sidebarInput <- function(id) {
       h4("2018-07-20"),
       h4("Contact email:"),
       h5(a("Barry Milne", href = "mailto:b.milne@auckland.ac.nz")),
-      br(),
       h5(a("Kevin Chang", href = "mailto:k.chang@auckland.ac.nz")),
       width = 12,
       background = "black"

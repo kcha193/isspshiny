@@ -3,8 +3,11 @@ library(shiny)
 library(shinydashboard)
 
 source("getdata2017.R")
-source("../sidebarInput.R")
-source("https://raw.githubusercontent.com/kcha193/isspshiny/master/ggplots.R")
+source("../Rcode/sidebarInput.R")
+source("../Rcode/plotsOutput.R")
+source("../Rcode/titleOutput.R")
+
+#source("https://raw.githubusercontent.com/kcha193/isspshiny/master/ggplots.R")
 
 # Define UI for application that draws a histogram
 ui <- dashboardPage(
@@ -23,7 +26,7 @@ ui <- dashboardPage(
   # Show a plot of the generated distribution
   dashboardBody(box(
     h2(textOutput("title")), 
-    plotOutput("distPlot",  height = "800px"),
+    plotOutput("barPlot",  height = "800px"),
     width = 12,
     height = 850
   ))
@@ -33,7 +36,12 @@ ui <- dashboardPage(
 # Define server logic required to draw a histogram
 server <- function(input, output) {
   
-  plotOut(input, output)
+  plotOut <- callModule(plotOutWeighted, "side", dat, datRaw)
+  titleOut <- callModule(titleOut, "side")
+  
+  output$title <- renderText({ titleOut()})
+  
+  output$barPlot <- renderPlot({plotOut()})
   
 }
 
