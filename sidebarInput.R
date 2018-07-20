@@ -1,0 +1,38 @@
+
+
+
+# Module UI function
+sidebarInput <- function(id) {
+  # Create a namespace function using the provided id
+  ns <- NS(id)
+  
+  tagList(
+    selectInput(
+      ns("varname"),
+      label = HTML('<font size=\"4\"> Select an item to examine </font>'),
+      choices = c(Choose = '', fullNameForSelect),
+      selectize = TRUE
+    ),
+    
+    selectInput(
+      ns("stratified"),
+      label = HTML('<font size=\"4\"> stratified by </font>'),
+      choices = c("None", "Gender", "Age group", "Gender by Age"),
+      selected = "None"
+    ),
+    box(
+      h4("Latest Update:"),
+      h4("2018-07-20"),
+      h4("Contact email:"),
+      h5(a("Barry Milne", href = "mailto:b.milne@auckland.ac.nz")),
+      br(),
+      h5(a("Kevin Chang", href = "mailto:k.chang@auckland.ac.nz")),
+      width = 12,
+      background = "black"
+    ), 
+    HTML("<a href=\"http://www.arts.auckland.ac.nz/en/about/our-research/research-centres-and-archives/compass.html\" target=\"_blank\"> 
+         <img src=\"compass.png\" width=\"200\" height=\"85\" /></a>")
+  )
+}
+
+
