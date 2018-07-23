@@ -9,9 +9,12 @@ Further specific information on the surveys that we as COMPASS have run has come
 
 Links to the Shiny apps: 
 
+* ISSP2015: [https://compassnz.shinyapps.io/issp2015](https://compassnz.shinyapps.io/issp2015)
+* ISSP2016: [https://compassnz.shinyapps.io/issp2016](https://compassnz.shinyapps.io/issp2016)
+* ISSP2017: [https://compassnz.shinyapps.io/issp2017](https://compassnz.shinyapps.io/issp2017)
 
 Latest Update: 
-2018-07-20
+2018-07-25
 
 Contact email: 
 Barry Milne [<b.milne@auckland.ac.nz>](mailto:b.milne@auckland.ac.nz)

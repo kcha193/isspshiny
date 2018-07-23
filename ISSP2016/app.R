@@ -3,13 +3,13 @@ library(shiny)
 library(shinydashboard)
 
 source("getdata2016.R")
-source("../Rcode/sidebarInput.R")
-source("../Rcode/plotsOutput.R")
-source("../Rcode/titleOutput.R")
+# source("../Rcode/sidebarInput.R")
+# source("../Rcode/plotsOutput.R")
+# source("../Rcode/titleOutput.R")
 
-# source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/plotsOutput.R")
-# source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/sidebarInput.R")
-# source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/titleOutput.R")
+source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/plotsOutput.R")
+source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/sidebarInput.R")
+source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/titleOutput.R")
 
 
 # Define UI for application that draws a histogram
