@@ -2,12 +2,15 @@
 library(shiny)
 library(shinydashboard)
 
+
 source("getdata2017.R")
 source("../Rcode/sidebarInput.R")
 source("../Rcode/plotsOutput.R")
 source("../Rcode/titleOutput.R")
 
-#source("https://raw.githubusercontent.com/kcha193/isspshiny/master/ggplots.R")
+# source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/plotsOutput.R")
+# source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/sidebarInput.R")
+# source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/titleOutput.R")
 
 # Define UI for application that draws a histogram
 ui <- dashboardPage(
@@ -17,14 +20,12 @@ ui <- dashboardPage(
   dashboardHeader(title = "ISSP 2017 -- Social Networks", titleWidth = 300),
   
   # Sidebar with a slider input for number of bins
-  dashboardSidebar(
-
-    sidebarInput("side")
-    
-  ),
+  dashboardSidebar(sidebarInput("side",
+          date = "20-17-2018")), # <- change this for every update 
   
-  # Show a plot of the generated distribution
+  # Show a plot 
   dashboardBody(box(
+    tags$head(includeScript("google-analytics.js")),
     h2(textOutput("title")), 
     plotOutput("barPlot",  height = "800px"),
     width = 12,
@@ -33,7 +34,7 @@ ui <- dashboardPage(
 )
 
 
-# Define server logic required to draw a histogram
+# Define server logic required to draw a plot
 server <- function(input, output) {
   
   plotOut <- callModule(plotOutWeighted, "side", dat, datRaw)

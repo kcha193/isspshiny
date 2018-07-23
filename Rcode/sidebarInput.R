@@ -2,7 +2,7 @@
 
 
 # Module UI function
-sidebarInput <- function(id) {
+sidebarInput <- function(id, date) {
   # Create a namespace function using the provided id
   ns <- NS(id)
   
@@ -21,7 +21,7 @@ sidebarInput <- function(id) {
     ),
     box(
       h4("Latest Update:"),
-      h4("2018-07-20"),
+      h4(date),
       h4("Contact email:"),
       h5(a("Barry Milne", href = "mailto:b.milne@auckland.ac.nz")),
       h5(a("Kevin Chang", href = "mailto:k.chang@auckland.ac.nz")),
@@ -29,7 +29,7 @@ sidebarInput <- function(id) {
       background = "black"
     ), 
     HTML("<a href=\"http://www.arts.auckland.ac.nz/en/about/our-research/research-centres-and-archives/compass.html\" target=\"_blank\"> 
-         <img src=\"compass.png\" width=\"200\" height=\"85\" /></a>")
+         <img src=\"compass.png\" width=\"200\" height=\"90\" /></a>")
   )
 }
 

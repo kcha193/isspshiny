@@ -20,7 +20,6 @@ plotOutWeighted <-
           dat <- dat %>% filter(as.numeric(X) != 9)
         }
         
-        
         dat$XX <- as_factor(dat$X)
         
         # Initialise ggplot2 object
@@ -51,7 +50,6 @@ plotOutWeighted <-
             ))
           }
         
-        
         yLimits <-
           if (input$stratified == "None") {
             max(prop.table(wtd.table(dat$XX,
@@ -68,7 +66,6 @@ plotOutWeighted <-
               weights = dat$wgt
             ), 2), na.rm = TRUE) + .1
           }
-        
         
         # Adding plot here
         g <- g +
@@ -107,7 +104,6 @@ plotOutWeighted <-
           g + facet_grid(Gender ~ Age) +
             theme(text = element_text(size = 20))
         }
-        
       })
   }
 
@@ -115,8 +111,7 @@ plotOutWeighted <-
 
 plotOutUnweighted <-
   function(input, output, session, dat, datRaw) {
-    
-    
+  
     reactive({
       dat$X <- datRaw %>%
         pull(names(fullName[fullName == req(input$varname)]))

@@ -101,8 +101,7 @@ server <- function(input, output) {
       dat <- dat %>% filter(as.numeric(X)!=9)
       
       dat$XX <- as_factor(dat$X) 
-      
-      dat <- droplevels(dat)
+
       
       # Initialise ggplot2 object 
       g <-  
