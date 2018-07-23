@@ -18,8 +18,8 @@ Latest Update:
 
 Contact email: 
 
-Barry Milne [<b.milne@auckland.ac.nz>](mailto:b.milne@auckland.ac.nz)
+Barry Milne: [<b.milne@auckland.ac.nz>](mailto:b.milne@auckland.ac.nz)
 
-Kevin Chang [<k.chang@auckland.ac.nz>](mailto:k.chang@auckland.ac.nz)
+Kevin Chang: [<k.chang@auckland.ac.nz>](mailto:k.chang@auckland.ac.nz)
 
 <a href="http://www.arts.auckland.ac.nz/en/about/our-research/research-centres-and-archives/compass.html" target="_blank"> <img src="compass.png" width="200" height="80" /></a>
