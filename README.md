@@ -17,6 +17,7 @@ Latest Update:
 2018-07-25
 
 Contact email: <br>
+Martin von Randow: [m.vonrandow@auckland.ac.nz](mailto:m.vonrandow@auckland.ac.nz) <br>
 Barry Milne: [b.milne@auckland.ac.nz](mailto:b.milne@auckland.ac.nz) <br>
 Kevin Chang: [k.chang@auckland.ac.nz](mailto:k.chang@auckland.ac.nz)
 
