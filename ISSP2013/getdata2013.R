@@ -16,7 +16,7 @@ fullNameForSelect <- as.character(fullName)
 
 #Keep only questions from Section A to B ####
 fullNameForSelect <- 
-  fullNameForSelect[1:grep("^Q33", fullNameForSelect)]
+  fullNameForSelect[1:grep("^E5e", fullNameForSelect)]
 
 
 #Remove all the questions from the "other" options ####
@@ -32,29 +32,32 @@ fullNameForSelect <-
 # qresponsibility
 
 # qtaxpayeduhealth
-
-
-labelTemp <- attr(datRaw$qtrustcourts, "labels")
-
-newLabel <- c(0:10, 99)
-names(newLabel) <- c(names(labelTemp)[1], 1:9, names(labelTemp)[2:3])
-
-attr(datRaw$qtrustcourts, "labels") <- newLabel
-
-
-
-labelTemp <- attr(datRaw$qtrustcompanies, "labels")
-
-newLabel <- c(0:10, 99)
-names(newLabel) <- c(names(labelTemp)[1], 1:9, names(labelTemp)[2:3])
-
-attr(datRaw$qtrustcompanies, "labels") <- newLabel
-
+# 
+# 
+# labelTemp <- attr(datRaw$qtrustcourts, "labels")
+# 
+# newLabel <- c(0:10, 99)
+# names(newLabel) <- c(names(labelTemp)[1], 1:9, names(labelTemp)[2:3])
+# 
+# attr(datRaw$qtrustcourts, "labels") <- newLabel
+# 
+# 
+# 
+# labelTemp <- attr(datRaw$qtrustcompanies, "labels")
+# 
+# newLabel <- c(0:10, 99)
+# names(newLabel) <- c(names(labelTemp)[1], 1:9, names(labelTemp)[2:3])
+# 
+# attr(datRaw$qtrustcompanies, "labels") <- newLabel
+# 
 
 
 
 # Create a temp dataframe for plot only #####################################
-dat <- datRaw %>% select(wgt, gender, age) %>%   as.data.frame()
+dat <- datRaw %>% select(kweight, kgender, kagegrp) %>%   
+  rename(wgt = kweight, 
+         gender = kgender, 
+         age = kagegrp) %>%   as.data.frame()
 
 dat$Gender <- dat$Age <- character(nrow(dat))
 

@@ -29,7 +29,7 @@ sidebarInput <- function(id, date) {
       background = "black"
     ), 
     HTML("<a href=\"http://www.arts.auckland.ac.nz/en/about/our-research/research-centres-and-archives/compass.html\" target=\"_blank\"> 
-         <img src=\"compass.png\" width=\"200\" height=\"90\" /></a>")
+         <img src=\"compass.png\" width=\"200\" height=\"95\" /></a>")
   )
 }
 
