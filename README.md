@@ -7,8 +7,7 @@ The data sets and metadata for all of the ISSP surveys for New Zealand can be do
 Further specific information on the surveys that we as COMPASS have run has come substantially from summer students that we have been privileged to host over the years, as well as from COMPASS staff. These have included efforts to apply survey weights to the data sets, as well as ensuring that we meet the requirements of the international body, especially in terms of the derivations of demographic variables.
 
 
-Links to the Shiny apps: 
-
+Links to the Shiny apps: <br>
 * ISSP2015: [https://compassnz.shinyapps.io/issp2015](https://compassnz.shinyapps.io/issp2015)
 * ISSP2016: [https://compassnz.shinyapps.io/issp2016](https://compassnz.shinyapps.io/issp2016)
 * ISSP2017: [https://compassnz.shinyapps.io/issp2017](https://compassnz.shinyapps.io/issp2017)
@@ -16,10 +15,8 @@ Links to the Shiny apps:
 Latest Update: 
 2018-07-25
 
-Contact email: 
-
-Barry Milne: [<b.milne@auckland.ac.nz>](mailto:b.milne@auckland.ac.nz)
-
-Kevin Chang: [<k.chang@auckland.ac.nz>](mailto:k.chang@auckland.ac.nz)
+Contact email: <br>
+Barry Milne: [b.milne@auckland.ac.nz](mailto:b.milne@auckland.ac.nz) <br>
+Kevin Chang: [k.chang@auckland.ac.nz](mailto:k.chang@auckland.ac.nz)
 
 <a href="http://www.arts.auckland.ac.nz/en/about/our-research/research-centres-and-archives/compass.html" target="_blank"> <img src="compass.png" width="200" height="80" /></a>
