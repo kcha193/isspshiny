@@ -21,7 +21,7 @@ sidebarInput <- function(id, date, link) {
     ),
     box(
       h4("Link to survey:"),
-      h5(a(link, href = link)),
+      h5(a(link, href = link, target="_blank")),
       h4("Latest Update:"),
       h4(date),
       h4("Contact email:"),
