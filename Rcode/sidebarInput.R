@@ -6,16 +6,15 @@ sidebarInput <- function(id, date = "28-07-2018") {
   # Create a namespace function using the provided id
   ns <- NS(id)
   
-  dafaultDate  <- "28-07-2018"
+  dafaultDate  <- as.Date("28-07-2018", "%d-%m-%Y")
   
   
   date <- as.Date(date, "%d-%m-%Y")
   
-  date <- ifelse(date >  as.Date(dafaultDate, "%d-%m-%Y"), 
-                 date , 
-                 as.Date(dafaultDate, "%d-%m-%Y"))
-  
-  date <- format(date, "%d-%m-%Y")
+  date <- ifelse(date >  dafaultDate, 
+                 format(date, "%d-%m-%Y") ,
+                 format(dafaultDate, "%d-%m-%Y"))
+
   
   tagList(
     selectInput(
