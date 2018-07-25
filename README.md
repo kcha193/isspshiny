@@ -9,14 +9,12 @@ Further specific information on the surveys that we as COMPASS have run has come
 
 Links to the Shiny apps: <br>
 * ISSP2017: <a href="https://compassnz.shinyapps.io/issp2017" target="_blank">https://compassnz.shinyapps.io/issp2017</a>
-* ISSP2016: [https://compassnz.shinyapps.io/issp2016](https://compassnz.shinyapps.io/issp2016){:target="_blank"}
-* ISSP2015: [https://compassnz.shinyapps.io/issp2015](https://compassnz.shinyapps.io/issp2015){:target="_blank"}
-* ISSP2013: [https://compassnz.shinyapps.io/issp2013](https://compassnz.shinyapps.io/issp2013){:target="_blank"}
-
-
+* ISSP2016: <a href="https://compassnz.shinyapps.io/issp2016" target="_blank">https://compassnz.shinyapps.io/issp2016</a>
+* ISSP2015: <a href="https://compassnz.shinyapps.io/issp2015" target="_blank">https://compassnz.shinyapps.io/issp2015</a>
+* ISSP2013: <a href="https://compassnz.shinyapps.io/issp2013" target="_blank">https://compassnz.shinyapps.io/issp2013</a>
 
 Latest Update: 
-2018-07-25
+2018-07-27
 
 Contact email: <br>
 Martin von Randow: [m.vonrandow@auckland.ac.nz](mailto:m.vonrandow@auckland.ac.nz) <br>
