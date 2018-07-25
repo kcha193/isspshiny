@@ -2,7 +2,7 @@
 
 
 # Module UI function
-sidebarInput <- function(id, date) {
+sidebarInput <- function(id, date, link) {
   # Create a namespace function using the provided id
   ns <- NS(id)
   
@@ -20,6 +20,8 @@ sidebarInput <- function(id, date) {
       selected = "None"
     ),
     box(
+      h4("Link to survey:"),
+      h5(a(link, href = link)),
       h4("Latest Update:"),
       h4(date),
       h4("Contact email:"),
