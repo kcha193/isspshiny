@@ -2,9 +2,20 @@
 
 
 # Module UI function
-sidebarInput <- function(id, date) {
+sidebarInput <- function(id, date = "28-07-2018") {
   # Create a namespace function using the provided id
   ns <- NS(id)
+  
+  dafaultDate  <- "28-07-2018"
+  
+  
+  date <- as.Date(date, "%d-%m-%Y")
+  
+  date <- ifelse(date >  as.Date(dafaultDate, "%d-%m-%Y"), 
+                 date , 
+                 as.Date(dafaultDate, "%d-%m-%Y"))
+  
+  date <- format(date, "%d-%m-%Y")
   
   tagList(
     selectInput(

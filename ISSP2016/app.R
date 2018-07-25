@@ -21,7 +21,7 @@ ui <- dashboardPage(
   
   # Sidebar with a slider input for number of bins
   dashboardSidebar(sidebarInput("side",
-      date = "20-17-2018")), # <- change this for every update 
+      date = "26-17-2018")), # <- change this for every update 
   
   
   # Show a plot of the generated distribution
