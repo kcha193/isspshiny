@@ -31,19 +31,19 @@ plotOutWeighted <-
               group = 1
             ))
           } else if (input$stratified == "Gender") {
-            ggplot(dat, aes(
-              x = XX,
-              weight = wgt,
-              group = Gender
+            ggplot(dat %>% filter(!is.na(Gender)), 
+                   aes(x = XX,
+                       weight = wgt,
+                       group = Gender
             ))
           } else if (input$stratified == "Age group") {
-            ggplot(dat, aes(
+            ggplot(dat %>% filter(!is.na(Age)), aes(
               x = XX,
               weight = wgt,
               group = Age
             ))
           } else if (input$stratified == "Gender by Age") {
-            ggplot(dat, aes(
+            ggplot(dat %>% filter(!is.na(Gender), !is.na(Age)), aes(
               x = XX,
               weight = wgt,
               group = interaction(Age, Gender)
@@ -59,7 +59,7 @@ plotOutWeighted <-
                                      weights = dat$wgt), 2), na.rm = TRUE) + .05
           } else if (input$stratified == "Age group") {
             max(prop.table(wtd.table(dat$XX, dat$Age,
-                                     weights = dat$wgt), 2), na.rm = TRUE) + .05
+                                     weights = dat$wgt), 2), na.rm = TRUE) + .1
           } else if (input$stratified == "Gender by Age") {
             max(prop.table(wtd.table(
               dat$XX, interaction(dat$Age, dat$Gender),
@@ -134,17 +134,17 @@ plotOutUnweighted <-
             group = 1
           ))
         } else if (input$stratified == "Gender") {
-          ggplot(dat, aes(
+          ggplot(dat %>% filter(!is.na(Age)), aes(
             x = XX,
             group = Gender
           ))
         } else if (input$stratified == "Age group") {
-          ggplot(dat, aes(
+          ggplot(dat %>% filter(!is.na(Age)), aes(
             x = XX,
             group = Age
           ))
         } else if (input$stratified == "Gender by Age") {
-          ggplot(dat, aes(
+          ggplot(dat %>% filter(!is.na(Gender), !is.na(Age)), aes(
             x = XX,
             group = interaction(Age, Gender)
           ))
