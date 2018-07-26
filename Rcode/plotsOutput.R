@@ -64,7 +64,7 @@ plotOutWeighted <-
             max(prop.table(wtd.table(
               dat$XX, interaction(dat$Age, dat$Gender),
               weights = dat$wgt
-            ), 2), na.rm = TRUE) + .1
+            ), 2), na.rm = TRUE) + .15
           }
         
         # Adding plot here
@@ -157,11 +157,11 @@ plotOutUnweighted <-
         } else if (input$stratified == "Gender") {
           max(prop.table(table(dat$XX, dat$Gender), 2), na.rm = TRUE) + .05
         } else if (input$stratified == "Age group") {
-          max(prop.table(table(dat$XX, dat$Age), 2), na.rm = TRUE) + .05
+          max(prop.table(table(dat$XX, dat$Age), 2), na.rm = TRUE) + .1
         } else if (input$stratified == "Gender by Age") {
           max(prop.table(table(
             dat$XX, interaction(dat$Age, dat$Gender)
-          ), 2), na.rm = TRUE) + .1
+          ), 2), na.rm = TRUE) + .15
         }
       
       
