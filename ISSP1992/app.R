@@ -2,7 +2,7 @@
 library(shiny)
 library(shinydashboard)
 
-source("getdata1991.R")
+source("getdata1992.R")
 # source("../Rcode/sidebarInput.R")
 # source("../Rcode/plotsOutput.R")
 # source("../Rcode/titleOutput.R")
@@ -14,10 +14,10 @@ source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/titleOu
 
 # Define UI for application that draws a histogram
 ui <- dashboardPage(
-  skin = "blue",
+  skin = "yellow",
   
   # Application title
-  dashboardHeader(title = "ISSP 1991 -- Religion I", titleWidth = 350),
+  dashboardHeader(title = "ISSP 1991 -- Social Inequality II", titleWidth = 350),
   
   # Sidebar with a slider input for number of bins
   dashboardSidebar(sidebarInput("side",

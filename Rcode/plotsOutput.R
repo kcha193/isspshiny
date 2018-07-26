@@ -134,7 +134,7 @@ plotOutUnweighted <-
             group = 1
           ))
         } else if (input$stratified == "Gender") {
-          ggplot(dat %>% filter(!is.na(Age)), aes(
+          ggplot(dat %>% filter(!is.na(Gender)), aes(
             x = XX,
             group = Gender
           ))

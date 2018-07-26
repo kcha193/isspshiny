@@ -5,10 +5,10 @@ library(tidyverse)
 library(questionr)
 
 
-datRaw <- read_spss("ISSP1991_Religion_I_data_set.sav")
+datRaw <- read_spss("ISSP1992_Social_Inequality_II_data_set.sav")
 
 #Fetch the names of dataset
-fullName <- sapply(names(datRaw)[grepl("^Q",names(datRaw) )], 
+fullName <- sapply(names(datRaw), 
                    function(x) attr(datRaw %>% pull(x), "label"))
 
 fullNameForSelect <- as.character(fullName)
@@ -16,7 +16,7 @@ fullNameForSelect <- as.character(fullName)
 
 #Keep only questions from Section A to F ####
 fullNameForSelect <-
-  fullNameForSelect[1:grep("^Q40", names(fullName))-1]
+  fullNameForSelect[2:80]
 
 # 
 # #Remove all the questions from the "other" options ####
@@ -31,9 +31,9 @@ fullNameForSelect <-
 
 
 # Create a temp dataframe for plot only ####
-dat <- datRaw %>% select(Q40, Q39) %>% 
-  rename(age = Q39, 
-         sex = Q40) %>% 
+dat <- datRaw %>% select(Q31_1999, Q30_1999) %>% 
+  rename(age = Q30_1999, 
+         sex = Q31_1999) %>% 
   as.data.frame()
 
 
