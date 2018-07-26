@@ -2,10 +2,7 @@
 library(shiny)
 library(shinydashboard)
 
-source("getdata1992.R")
-# source("../Rcode/sidebarInput.R")
-# source("../Rcode/plotsOutput.R")
-# source("../Rcode/titleOutput.R")
+source("getdata1993.R")
 
 source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/plotsOutput.R")
 source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/sidebarInput.R")
@@ -14,15 +11,14 @@ source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/titleOu
 
 # Define UI for application that draws a histogram
 ui <- dashboardPage(
-  skin = "yellow",
+  skin = "green",
   
   # Application title
-  dashboardHeader(title = "ISSP 1992 -- Social Inequality II", titleWidth = 350),
+  dashboardHeader(title = "ISSP 1993 -- Environment I", titleWidth = 300),
   
   # Sidebar with a slider input for number of bins
   dashboardSidebar(sidebarInput("side",
-                                date = "27-17-2018")), # <- change this for every update 
-  
+                                date = "26-07-2018")), # <- change this for every update 
   
   # Show a plot of the generated distribution
   dashboardBody(box(
