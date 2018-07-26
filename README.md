@@ -14,7 +14,7 @@ Links to the Shiny apps: <br>
 * ISSP2013: <a href="https://compassnz.shinyapps.io/issp2013" target="_blank">https://compassnz.shinyapps.io/issp2013</a>
 
 Links to the Shiny apps: <br>
-<a href="https://kcha193.github.io/isspshiny/pre/" title="Previous Apps">Previous Apps</a>
+<a href="https://kcha193.github.io/isspshiny/prev/" title="Previous Apps">Previous Apps</a>
 
 Latest Update: 
 2018-07-27
