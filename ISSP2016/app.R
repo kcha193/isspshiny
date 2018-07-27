@@ -14,7 +14,7 @@ ui <- dashboardPage(
   skin = "blue",
   
   # Application title
-  dashboardHeader(title = "ISSP 2016 - Role of Government", titleWidth = 330),
+  dashboardHeader(title = "ISSP 2016 - Role of Government V", titleWidth = 350),
   
   # Sidebar with a slider input for number of bins
   dashboardSidebar(sidebarInput("side",

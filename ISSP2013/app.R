@@ -14,14 +14,14 @@ source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/titleOu
 
 # Define UI for application that draws a histogram
 ui <- dashboardPage(
-  skin = "black",
+  skin = "purple",
   
   # Application title
-  dashboardHeader(title = "ISSP 2013 -- National Identity", titleWidth = 350),
+  dashboardHeader(title = "ISSP 2013 - National Identity III", titleWidth = 320),
   
   # Sidebar with a slider input for number of bins
   dashboardSidebar(sidebarInput("side",
-                                date = "25-17-2018")), # <- change this for every update 
+                                date = "27-07-2018")), # <- change this for every update 
   
   
   # Show a plot of the generated distribution

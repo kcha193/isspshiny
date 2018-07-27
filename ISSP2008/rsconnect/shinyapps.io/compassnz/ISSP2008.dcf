@@ -1,0 +1,12 @@
+name: ISSP2008
+title: ISSP2008
+username:
+account: compassnz
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 389160
+bundleId: 1503006
+url: https://compassnz.shinyapps.io/ISSP2008/
+when: 1532666977.79453
+asMultiple: FALSE
+asStatic: FALSE

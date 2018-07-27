@@ -11,10 +11,10 @@ source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/titleOu
 
 # Define UI for application that draws a histogram
 ui <- dashboardPage(
-  skin = "red",
+  skin = "purple",
   
   # Application title
-  dashboardHeader(title = "ISSP 2007 -- Leisure Time and Sports", titleWidth = 400),
+  dashboardHeader(title = "ISSP 2007 - Leisure Time and Sports", titleWidth = 400),
   
   # Sidebar with a slider input for number of bins
   dashboardSidebar(sidebarInput("side",

@@ -5,9 +5,9 @@ account: compassnz
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 386937
-bundleId: 1496919
+bundleId: 1502999
 url: https://compassnz.shinyapps.io/ISSP2013/
-when: 1532432187.23908
+when: 1532666668.46173
 asMultiple: FALSE
 asStatic: FALSE
 ignoredFiles: app.Rmd

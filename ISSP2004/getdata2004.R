@@ -5,7 +5,7 @@ library(tidyverse)
 library(questionr)
 
 
-datRaw <- read_spss("ISSP2005_Work_Orientations_III_data_set.sav")
+datRaw <- read_spss("ISSP2004_Citizenship_I_data_set.sav")
 
 #Fetch the names of dataset
 fullName <- sapply(names(datRaw)[grepl("^Q", names(datRaw) )], 
@@ -15,7 +15,7 @@ fullNameForSelect <- as.character(fullName)
 
 #Keep only questions from Section A to B ####
 fullNameForSelect <-
-  fullNameForSelect[1:grep("Self-assessment: R has few artistic interests",
+  fullNameForSelect[1:grep("Importance: Showing you tolerate someone you strongly disagree with",
                            fullNameForSelect)]
 
 
@@ -34,9 +34,9 @@ fullNameForSelect <-
 
 # Create a temp dataframe for plot only #####################################
 dat <-
-  datRaw %>% select(Q49, Q48) %>%   
-  rename( gender = Q49, 
-         age =  Q48) %>%   as.data.frame()
+  datRaw %>% select(Q35, Q34) %>%   
+  rename( gender = Q35, 
+         age =  Q34) %>%   as.data.frame()
 
 dat$Gender <- dat$Age <- character(nrow(dat))
 

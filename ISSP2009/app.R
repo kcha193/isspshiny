@@ -14,7 +14,7 @@ source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/titleOu
 
 # Define UI for application that draws a histogram
 ui <- dashboardPage(
-  skin = "green",
+  skin = "red",
   
   # Application title
   dashboardHeader(title = "ISSP 2009 -- Social Inequality IV", titleWidth = 350),
@@ -43,7 +43,7 @@ server <- function(input, output) {
   
   titleOut <- callModule(titleOut, "side")
   
-  output$title <- renderText({ titleOut()})
+  output$title <- renderText({titleOut()})
   
   output$barPlot <- renderPlot({plotOut()})
   

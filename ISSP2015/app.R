@@ -12,10 +12,9 @@ source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/titleOu
 ui <- dashboardPage(
   skin = "yellow",
   
-  
   # Application title
-  dashboardHeader(title = "ISSP 2015 - Citizenship and Work Orientation",
-                  titleWidth = 450),
+  dashboardHeader(title = "ISSP 2014/2015 - Citizenship and Work Orientation",
+                  titleWidth = 500),
   
   # Sidebar with a slider input for number of bins
   dashboardSidebar(sidebarInput("side",
