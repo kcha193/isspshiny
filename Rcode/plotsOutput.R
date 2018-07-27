@@ -59,12 +59,12 @@ plotOutWeighted <-
                                      weights = dat$wgt), 2), na.rm = TRUE) + .05
           } else if (input$stratified == "Age group") {
             max(prop.table(wtd.table(dat$XX, dat$Age,
-                                     weights = dat$wgt), 2), na.rm = TRUE) + .1
+                                     weights = dat$wgt), 2), na.rm = TRUE) + .15
           } else if (input$stratified == "Gender by Age") {
             max(prop.table(wtd.table(
               dat$XX, interaction(dat$Age, dat$Gender),
               weights = dat$wgt
-            ), 2), na.rm = TRUE) + .15
+            ), 2), na.rm = TRUE) + .2
           }
         
         # Adding plot here
@@ -87,7 +87,7 @@ plotOutWeighted <-
           guides(fill = "none")  +
           scale_x_discrete(
             labels = function(x)
-              str_wrap(x, width = 50)
+              str_wrap(x, width = 30)
           ) +
           coord_flip()
         
@@ -157,11 +157,11 @@ plotOutUnweighted <-
         } else if (input$stratified == "Gender") {
           max(prop.table(table(dat$XX, dat$Gender), 2), na.rm = TRUE) + .05
         } else if (input$stratified == "Age group") {
-          max(prop.table(table(dat$XX, dat$Age), 2), na.rm = TRUE) + .1
+          max(prop.table(table(dat$XX, dat$Age), 2), na.rm = TRUE) + .15
         } else if (input$stratified == "Gender by Age") {
           max(prop.table(table(
             dat$XX, interaction(dat$Age, dat$Gender)
-          ), 2), na.rm = TRUE) + .15
+          ), 2), na.rm = TRUE) + .2
         }
       
       
@@ -185,7 +185,7 @@ plotOutUnweighted <-
         guides(fill = "none")  +
         scale_x_discrete(
           labels = function(x)
-            str_wrap(x, width = 50)
+            str_wrap(x, width = 30)
         ) +
         coord_flip()
       
@@ -247,9 +247,9 @@ plotOutWeighted2015 <-
           } else if (input$stratified == "Gender") {
             max(qmoveTempBySex$Prop, na.rm = TRUE) + .05
           } else if (input$stratified == "Age group") {
-            max(qmoveTempByAge$Prop, na.rm = TRUE) + .1
+            max(qmoveTempByAge$Prop, na.rm = TRUE) + .15
           } else if (input$stratified == "Gender by Age") {
-            max(qmoveTempBySexAge$Prop, na.rm = TRUE) + .15
+            max(qmoveTempBySexAge$Prop, na.rm = TRUE) + .2
           }
         
         
@@ -311,13 +311,13 @@ plotOutWeighted2015 <-
                                      weights = dat$wgt), 2), na.rm = TRUE) + .05
           } else if (input$stratified == "Age group") {
             max(prop.table(wtd.table(dat$XX, dat$Age,
-                                     weights = dat$wgt), 2), na.rm = TRUE) + .1
+                                     weights = dat$wgt), 2), na.rm = TRUE) + .15
           } else if (input$stratified == "Gender by Age") {
             max(prop.table(wtd.table(
               dat$XX,
               interaction(dat$Age, dat$Gender),
               weights = dat$wgt
-            ), 2), na.rm = TRUE) + .15
+            ), 2), na.rm = TRUE) + .2
           }
         
         
@@ -345,26 +345,23 @@ plotOutWeighted2015 <-
         guides(fill = "none")  +
         scale_x_discrete(
           labels = function(x)
-            str_wrap(x, width = 20)
+            str_wrap(x, width = 30)
         ) +
         coord_flip()
       
       #Facet here
-      finalPlot <-
-        if (input$stratified == "None") {
-          g
-        } else if (input$stratified == "Gender") {
-          g + facet_grid(~ Gender) +
-            theme(text = element_text(size = 25))
-        } else if (input$stratified == "Age group") {
-          g + facet_grid(~ Age) +
-            theme(text = element_text(size = 20))
-        } else if (input$stratified == "Gender by Age") {
-          g + facet_grid(Gender ~ Age) +
-            theme(text = element_text(size = 20))
-        }
-      
-      
-      finalPlot
+      if (input$stratified == "None") {
+        g
+      } else if (input$stratified == "Gender") {
+        g + facet_grid(~ Gender) +
+          theme(text = element_text(size = 25))
+      } else if (input$stratified == "Age group") {
+        g + facet_grid(~ Age) +
+          theme(text = element_text(size = 20))
+      } else if (input$stratified == "Gender by Age") {
+        g + facet_grid(Gender ~ Age) +
+          theme(text = element_text(size = 20))
+      }
+
     })
   }

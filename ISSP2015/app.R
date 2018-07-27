@@ -26,7 +26,7 @@ ui <- dashboardPage(
   dashboardBody(tags$head(includeScript("google-analytics.js")),
                 box(
                   h2(textOutput("title")),
-                  plotOutput("distPlot",  height = "800px"),
+                  plotOutput("barPlot",  height = "800px"),
                   width = 12,
                   height = 850
                 ))
