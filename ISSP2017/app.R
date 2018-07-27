@@ -17,11 +17,11 @@ ui <- dashboardPage(
   skin = "red",
   
   # Application title
-  dashboardHeader(title = "ISSP 2017 -- Social Networks", titleWidth = 300),
+  dashboardHeader(title = "ISSP 2017 - Social Networks III", titleWidth = 300),
   
   # Sidebar with a slider input for number of bins
   dashboardSidebar(sidebarInput("side",
-          date = "20-17-2018")), # <- change this for every update 
+          date = "27-07-2018")), # <- change this for every update 
   
   # Show a plot 
   dashboardBody(box(

@@ -3,9 +3,6 @@ library(shiny)
 library(shinydashboard)
 
 source("getdata2016.R")
-# source("../Rcode/sidebarInput.R")
-# source("../Rcode/plotsOutput.R")
-# source("../Rcode/titleOutput.R")
 
 source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/plotsOutput.R")
 source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/sidebarInput.R")
@@ -17,11 +14,11 @@ ui <- dashboardPage(
   skin = "blue",
   
   # Application title
-  dashboardHeader(title = "ISSP 2016 -- Role of Government", titleWidth = 350),
+  dashboardHeader(title = "ISSP 2016 - Role of Government", titleWidth = 330),
   
   # Sidebar with a slider input for number of bins
   dashboardSidebar(sidebarInput("side",
-      date = "26-17-2018")), # <- change this for every update 
+      date = "27-07-2018")), # <- change this for every update 
   
   
   # Show a plot of the generated distribution
