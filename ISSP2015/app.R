@@ -37,7 +37,9 @@ ui <- dashboardPage(
 server <- function(input, output) {
   
   plotOut <- callModule(plotOutWeighted2015, "side", 
-                        dat = dat, datRaw = datRaw)
+                        dat = dat, datRaw = datRaw, 
+                        qmoveTempOverall, qmoveTempByAge, 
+                        qmoveTempBySex, qmoveTempBySexAge)
   
   titleOut <- callModule(titleOut, "side")
   

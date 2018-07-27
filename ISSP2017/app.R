@@ -4,9 +4,7 @@ library(shinydashboard)
 
 
 source("getdata2017.R")
-# source("../Rcode/sidebarInput.R")
-# source("../Rcode/plotsOutput.R")
-# source("../Rcode/titleOutput.R")
+
 
 source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/plotsOutput.R")
 source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/sidebarInput.R")
