@@ -20,7 +20,20 @@ plotOutWeighted <-
           } else {
             dat <- dat %>% filter(as.numeric(X) != 9)
           }
+        } else {
+          if (any(names(attr(dat$X, "labels")) == "Can't choose")) {
+            
+            dat<- 
+              dat %>% filter(as.character(X) != 
+                               attr(dat$X, "labels")[
+                                 names(attr(dat$X, "labels")) == 
+                                   "Can't choose"])
+          }
+          
+          dat<- 
+            dat %>% filter(as.character(X) != "")
         }
+        
         
         dat$XX <- as_factor(dat$X)
         
@@ -125,7 +138,20 @@ plotOutUnweighted <-
         } else {
           dat <- dat %>% filter(as.numeric(X) != 9)
         }
+      } else {
+        if (any(names(attr(dat$X, "labels")) == "Can't choose")) {
+          
+          dat<- 
+            dat %>% filter(as.character(X) != 
+                             attr(dat$X, "labels")[
+                               names(attr(dat$X, "labels")) == 
+                                 "Can't choose"])
+        }
+        
+        dat<- 
+          dat %>% filter(as.character(X) != "")
       }
+      
       
       
       dat$XX <- as_factor(dat$X)
@@ -278,7 +304,20 @@ plotOutWeighted2015 <-
           } else {
             dat <- dat %>% filter(as.numeric(X) != 9)
           }
+        } else {
+          if (any(names(attr(dat$X, "labels")) == "Can't choose")) {
+            
+            dat<- 
+              dat %>% filter(as.character(X) != 
+                               attr(dat$X, "labels")[
+                                 names(attr(dat$X, "labels")) == 
+                                   "Can't choose"])
+          }
+          
+          dat<- 
+            dat %>% filter(as.character(X) != "")
         }
+        
         
         dat$XX <- as_factor(dat$X)
         
