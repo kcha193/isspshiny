@@ -14,6 +14,32 @@ fullName <- sapply(names(datRaw)[grepl("^q",names(datRaw) )],
 fullNameForSelect <- as.character(fullName)
 
 
+# Fixing some question titles 
+
+#qspendmaori
+
+fullName[names(fullName) == "qspendmaori"] <- 
+  "A6k. Opinion on government spending on Maori development"
+
+
+#qgovthousing
+
+fullName[names(fullName) == "qgovthousing"] <- 
+  "A7i. Should government provide decent housing for those who cannot afford it?"
+
+#qgovtmaoriselfdet
+
+fullName[names(fullName) == "qgovtmaoriselfdet"] <- 
+  "A7p. Should government ensure Maori have opportunities to achieve greater levels of self-determination over all thing?"
+
+
+#qgsuccessthreat
+
+fullName[names(fullName) == "qgsuccessthreat"] <- 
+  "A8c. How well is government doing at dealing with threats to New Zealand's security?" 
+
+
+
 #Keep only questions from Section A to B ####
 fullNameForSelect <- 
   fullNameForSelect[grepl("^[A-B]", fullNameForSelect)]
@@ -23,6 +49,15 @@ fullNameForSelect <-
 fullNameForSelect <- 
   fullNameForSelect[!grepl("x\\. ", fullNameForSelect)]
 
+
+
+# qbenefitchildren
+
+labelTemp <- attr(datRaw$qbenefitchildren, "labels")
+
+names(labelTemp)[2] <- "Maybe - it depends on the circumstances"
+
+attr(datRaw$qbenefitchildren, "labels") <- labelTemp
 
 # qresponsibility
 
@@ -37,8 +72,6 @@ names(labelTemp)[7] <- names(labelTemp)[8] <- "Government should take responsibi
 names(labelTemp)[9] <- names(labelTemp)[10] <- "Government should take more responsibility"
 
 attr(datRaw$qresponsibility, "labels") <- labelTemp
-
-
 
 # qgovtmonitor
 
@@ -69,6 +102,9 @@ names(newLabel) <- c("Government should reduce taxes",
 attr(datRaw$qtaxpayeduhealth, "labels") <- newLabel
 
 
+
+
+
 # Create a temp dataframe for plot only ####
 dat <- datRaw %>% select(wgt, Gender, age) %>% 
   rename(sex = Gender) %>%  as.data.frame()
@@ -83,7 +119,11 @@ dat$Age <- as_factor( dat$age)
 
 
 
+as_factor(datRaw$qmostinfluence)
 
+
+dat$X <- datRaw %>%
+  pull(names(fullName[fullName == req(input$varname)]))
   
 
 

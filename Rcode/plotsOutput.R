@@ -14,10 +14,12 @@ plotOutWeighted <-
           pull(names(fullName[fullName == req(input$varname)]))
         
         #Remove the missing
-        if (any(attr(dat$X, "labels") %in% 99)) {
-          dat <- dat %>% filter(as.numeric(X) != 99)
-        } else {
-          dat <- dat %>% filter(as.numeric(X) != 9)
+        if(is.numeric(dat$X)){
+          if (any(attr(dat$X, "labels") %in% 99)) {
+            dat <- dat %>% filter(as.numeric(X) != 99)
+          } else {
+            dat <- dat %>% filter(as.numeric(X) != 9)
+          }
         }
         
         dat$XX <- as_factor(dat$X)
@@ -117,10 +119,12 @@ plotOutUnweighted <-
         pull(names(fullName[fullName == req(input$varname)]))
       
       #Remove the missing
-      if (any(attr(dat$X, "labels") %in% 99)) {
-        dat <- dat %>% filter(as.numeric(X) != 99)
-      } else {
-        dat <- dat %>% filter(as.numeric(X) != 9)
+      if(is.numeric(dat$X)){
+        if (any(attr(dat$X, "labels") %in% 99)) {
+          dat <- dat %>% filter(as.numeric(X) != 99)
+        } else {
+          dat <- dat %>% filter(as.numeric(X) != 9)
+        }
       }
       
       
@@ -268,7 +272,13 @@ plotOutWeighted2015 <-
           pull(names(fullName[fullName == req(input$varname)]))
         
         #Remove the missing
-        dat <- dat %>% filter(as.numeric(X) != 9)
+        if(is.numeric(dat$X)){
+          if (any(attr(dat$X, "labels") %in% 99)) {
+            dat <- dat %>% filter(as.numeric(X) != 99)
+          } else {
+            dat <- dat %>% filter(as.numeric(X) != 9)
+          }
+        }
         
         dat$XX <- as_factor(dat$X)
         
