@@ -78,6 +78,8 @@ sidebarInputMultiYears <- function(id, year = 2010, date = "01-08-2018") {
       selected = "None"
     ),
     box(
+      h4("To access the datasets and questionnaires, go to ",  
+         a("here.", href = "https://doi.org/10.17608/k6.auckland.c.2174592.v9")),
       h4("Latest Update:"),
       h4(date),
       h4("Contact email:"),
