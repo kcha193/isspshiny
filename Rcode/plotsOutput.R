@@ -124,12 +124,19 @@ plotOutWeighted <-
 
 
 
-plotOutUnweighted <-
-  function(input, output, session, dat, datRaw) {
+plotOutMain <-
+  function(input, output, session, datList, datRawList, fullNameList) {
   
     reactive({
+      
+      dat <- datList[[input$year]]
+      datRaw <- datRawList[[input$year]]
+      fullName <- fullNameList[[input$year]]
+      
       dat$X <- datRaw %>%
         pull(names(fullName[fullName == req(input$varname)]))
+      
+  
       
       #Remove the missing
       if(is.numeric(dat$X)){
@@ -157,7 +164,55 @@ plotOutUnweighted <-
       dat$XX <- as_factor(dat$X)
       
       # Initialise ggplot2 object
-      g <-
+      
+      if( any(names(dat) == "wgt")){
+
+        g <-
+          if (input$stratified == "None") {
+            ggplot(dat, aes(
+              x = XX,
+              weight = wgt,
+              group = 1
+            ))
+          } else if (input$stratified == "Gender") {
+            ggplot(dat %>% filter(!is.na(Gender)), 
+                   aes(x = XX,
+                       weight = wgt,
+                       group = Gender
+                   ))
+          } else if (input$stratified == "Age group") {
+            ggplot(dat %>% filter(!is.na(Age)), aes(
+              x = XX,
+              weight = wgt,
+              group = Age
+            ))
+          } else if (input$stratified == "Gender by Age") {
+            ggplot(dat %>% filter(!is.na(Gender), !is.na(Age)), aes(
+              x = XX,
+              weight = wgt,
+              group = interaction(Age, Gender)
+            ))
+          }
+        
+        yLimits <-
+          if (input$stratified == "None") {
+            max(prop.table(wtd.table(dat$XX,
+                                     weights = dat$wgt)), na.rm = TRUE) + .01
+          } else if (input$stratified == "Gender") {
+            max(prop.table(wtd.table(dat$XX, dat$Gender,
+                                     weights = dat$wgt), 2), na.rm = TRUE) + .05
+          } else if (input$stratified == "Age group") {
+            max(prop.table(wtd.table(dat$XX, dat$Age,
+                                     weights = dat$wgt), 2), na.rm = TRUE) + .15
+          } else if (input$stratified == "Gender by Age") {
+            max(prop.table(wtd.table(
+              dat$XX, interaction(dat$Age, dat$Gender),
+              weights = dat$wgt
+            ), 2), na.rm = TRUE) + .2
+          }
+      
+      } else {
+        g <-
         if (input$stratified == "None") {
           ggplot(dat, aes(
             x = XX,
@@ -193,6 +248,8 @@ plotOutUnweighted <-
             dat$XX, interaction(dat$Age, dat$Gender)
           ), 2), na.rm = TRUE) + .2
         }
+      
+      }
       
       
       # Adding plot here

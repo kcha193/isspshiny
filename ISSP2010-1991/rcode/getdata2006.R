@@ -52,6 +52,13 @@ dat$Age <- factor(
 
 
 
+# Save into a four lists ##################
+
+fullNameList$`2006` <- fullName
+fullNameForSelectList$`2006` <- fullNameForSelect
+datRawList$`2006` <- datRaw
+datList$`2006` <- dat
+
 
 
 

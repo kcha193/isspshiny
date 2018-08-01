@@ -1,8 +1,5 @@
 
 
-library(haven)
-library(tidyverse)
-library(questionr)
 
 
 datRaw <- read_spss("data/ISSP2008_Religion_III_data_set.sav")
@@ -25,9 +22,7 @@ fullNameForSelect <-
 
 
 
-
 # Fixing some questions #################################
-
 
 
 
@@ -53,6 +48,12 @@ dat$Age <- factor(
 
 
 
+# Save into a four lists ##################
+
+fullNameList$`2008` <- fullName
+fullNameForSelectList$`2008` <- fullNameForSelect
+datRawList$`2008` <- datRaw
+datList$`2008` <- dat
 
 
 

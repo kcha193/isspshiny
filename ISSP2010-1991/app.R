@@ -3,12 +3,18 @@ library(shiny)
 library(shinydashboard)
 
 
+# source("../Rcode/plotsOutput.R")
+# source("../Rcode/sidebarInput.R")
+# source("../Rcode/titleOutput.R")
+
+load("all.RData")
+
 source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/plotsOutput.R")
 source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/sidebarInput.R")
 source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/titleOutput.R")
 
 
-
+rv <- reactiveValues(datRaw= NULL, dat = NULL)
 
 # Define UI for application that draws a histogram
 ui <- dashboardPage(
@@ -19,16 +25,9 @@ ui <- dashboardPage(
   
   # Sidebar with a slider input for number of bins
   dashboardSidebar(
-    selectInput(
-      "year",
-      label = HTML('<font size=\"4\"> Select a year of survey </font>'),
-      choices = c(Choose = '', 2010:1991),
-      selectize = TRUE, 
-      selected = "2010"
-    ),
+    sidebarInputYear("side"), 
     h4(strong(textOutput("topic"))), 
-    uiOutput("sidebarInput")), 
-  
+    uiOutput("sidebarInputUI")), 
   
   # Show a plot of the generated distribution
   dashboardBody(box(
@@ -44,30 +43,36 @@ ui <- dashboardPage(
 # Define server logic required to draw a plot
 server <- function(input, output) {
   
+ 
+  
   topics <- read.csv("topics.csv", stringsAsFactors = FALSE)
   
+  topicsOut <- callModule(topicsOut, "side", topics)
+  
+
+  sidebarInput <- 
+    callModule(sidebarInputMultiYears, "side", 
+               fullNameForSelectList = fullNameForSelectList,
+               date = "01-08-2018")
+  
+  
+  output$sidebarInputUI <- renderUI({ sidebarInput()})
   
   output$topic <- renderText({
-    paste("Topic:", topics$Topic[topics$Year == input$year])
+    topicsOut()
   })
+ 
+  plotOut <- callModule(plotOutMain, "side", 
+                        datList = datList, 
+                        datRawList = datRawList, 
+                        fullNameList = fullNameList)
   
-  
-  
-  output$sidebarInput <- renderUI({
-    sidebarInputMultiYears("side", year = input$year, date = "25-07-2018")
-    # <- change this for every update 
-  })
-
-  plotOut <- callModule(plotOutWeighted, "side", 
-                        dat = dat, datRaw = datRaw)
   
   titleOut <- callModule(titleOut, "side")
-  
   
   output$title <- renderText({ titleOut()})
   
   output$barPlot <- renderPlot({plotOut()})
-  
 }
 
 # Run the application

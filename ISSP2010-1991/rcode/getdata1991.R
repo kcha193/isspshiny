@@ -52,9 +52,12 @@ dat$Age <- factor(
                        ifelse(age < 76, "61-75", "76+")))), 
   levels = c("18-30", "31-45", "46-60","61-75", "76+"))
 
+# Save into a four lists ##################
 
-
-
+fullNameList$`1991` <- fullName
+fullNameForSelectList$`1991` <- fullNameForSelect
+datRawList$`1991` <- datRaw
+datList$`1991` <- dat
 
 
   

@@ -52,6 +52,12 @@ dat$Age <- factor(
   levels = c("18-30", "31-45", "46-60", "61-75", "76+"))
 
 
+# Save into a four lists ##################
+
+fullNameList$`2005` <- fullName
+fullNameForSelectList$`2005` <- fullNameForSelect
+datRawList$`2005` <- datRaw
+datList$`2005` <- dat
 
 
 
