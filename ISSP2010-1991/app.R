@@ -57,9 +57,6 @@ server <- function(input, output) {
     sidebarInputMultiYears("side", year = input$year, date = "25-07-2018")
     # <- change this for every update 
   })
-  
-  
-  browser()
 
   plotOut <- callModule(plotOutWeighted, "side", 
                         dat = dat, datRaw = datRaw)
