@@ -3,7 +3,6 @@ library(shiny)
 library(shinydashboard)
 
 
-
 source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/plotsOutput.R")
 source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/sidebarInput.R")
 source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/titleOutput.R")
@@ -11,16 +10,16 @@ source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/titleOu
 
 # Define UI for application that draws a histogram
 ui <- dashboardPage(
-  skin = "green",
+  skin = "red",
   
   # Application title
-  dashboardHeader(title = "ISSP 2010 - 1991", titleWidth = 280),
+  dashboardHeader(title = "ISSP 2010 - 1991"),
   
   # Sidebar with a slider input for number of bins
   dashboardSidebar(
     selectInput(
       "year",
-      label = HTML('<font size=\"4\"> Select the year of survey </font>'),
+      label = HTML('<font size=\"4\"> Select a year of survey </font>'),
       choices = c(Choose = '', 2010:1991),
       selectize = TRUE, 
       selected = "2010"
@@ -31,7 +30,6 @@ ui <- dashboardPage(
   # Show a plot of the generated distribution
   dashboardBody(box(
     #tags$head(includeScript("google-analytics.js")),
-    h2(textOutput("selYear")), 
     h2(textOutput("title")), 
     plotOutput("barPlot",  height = "800px"),
     width = 12,
@@ -43,15 +41,10 @@ ui <- dashboardPage(
 # Define server logic required to draw a plot
 server <- function(input, output) {
   
-
-  output$selYear <- renderText({ input$year})
-  
-  
   output$sidebarInput <- renderUI({
-    sidebarInputMultiYears("side", date = "25-07-2018") # <- change this for every update 
-    
+    sidebarInputMultiYears("side", year = input$year, date = "25-07-2018")
+    # <- change this for every update 
   })
-  
   
   plotOut <- callModule(plotOutWeighted, "side", 
                         dat = dat, datRaw = datRaw)

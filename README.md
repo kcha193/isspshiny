@@ -13,11 +13,10 @@ Links to the Shiny apps: <br>
 * ISSP2015: <a href="https://compassnz.shinyapps.io/issp2015" target="_blank">https://compassnz.shinyapps.io/issp2015</a>
 * ISSP2013: <a href="https://compassnz.shinyapps.io/issp2013" target="_blank">https://compassnz.shinyapps.io/issp2013</a>
 
-
-Link to the Shiny apps for the surveys from 1991 to 2010: <a href="https://kcha193.github.io/isspshiny/prev"> Apps of previous surveys</a>
+Link to the Shiny app for the surveys from 1991 to 2010: <a href="https://compassnz.shinyapps.io/issp2010-1991" target="_blank">https://compassnz.shinyapps.io/issp2010-1991</a>
 
 Latest Update: 
-2018-07-27
+2018-08-01
 
 Contact email: <br>
 Martin von Randow: [m.vonrandow@auckland.ac.nz](mailto:m.vonrandow@auckland.ac.nz) <br>

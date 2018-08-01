@@ -1,0 +1,12 @@
+name: ISSP2010-1991
+title: ISSP2010-1991
+username:
+account: compassnz
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 392931
+bundleId: 1510750
+url: https://compassnz.shinyapps.io/ISSP2010-1991/
+when: 1533086335.95475
+asMultiple: FALSE
+asStatic: FALSE

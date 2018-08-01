@@ -59,7 +59,7 @@ sidebarInputMultiYears <- function(id, year = 2010, date = "01-08-2018") {
                  format(dafaultDate, "%d-%m-%Y"))
   
   #Read-in data for multiple years 
-  source(paste0("getdata", year,".R"))
+  source(paste0("rcode/getdata", year,".R"))
   
   
   tagList(
