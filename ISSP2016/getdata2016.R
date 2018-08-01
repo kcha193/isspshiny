@@ -11,7 +11,6 @@ datRaw <- read_spss("ISSP2016_FINAL.sav")
 fullName <- sapply(names(datRaw)[grepl("^q",names(datRaw) )], 
                    function(x) attr(datRaw %>% pull(x), "label"))
 
-fullNameForSelect <- as.character(fullName)
 
 
 # Fixing some question titles 
@@ -39,6 +38,18 @@ fullName[names(fullName) == "qgsuccessthreat"] <-
   "A8c. How well is government doing at dealing with threats to New Zealand's security?" 
 
 
+#qgovtapph
+
+fullName[names(fullName) == "qgovtapph"] <- 
+  "A21b. Should authorities have the right to tap people's telephone conversations?" 
+
+
+#Remove qrefanythingelse
+
+fullName <- fullName[!as.character(names(fullName)) %in% "qrefanythingelse"]
+
+
+fullNameForSelect <- as.character(fullName)
 
 #Keep only questions from Section A to B ####
 fullNameForSelect <- 
@@ -48,7 +59,6 @@ fullNameForSelect <-
 #Remove all the questions from the "other" options ####
 fullNameForSelect <- 
   fullNameForSelect[!grepl("x\\. ", fullNameForSelect)]
-
 
 
 # qbenefitchildren
@@ -114,108 +124,6 @@ dat$Gender <- as_factor( dat$sex)
 dat$Age <- as_factor( dat$age)
 
 
-
-dat$X <- datRaw$qmostinfluence
-
-#Remove the missing
-
-#Remove the missing
-if(is.numeric(dat$X)){
-  if (any(attr(dat$X, "labels") %in% 99)) {
-    dat <- dat %>% filter(as.numeric(X) != 99)
-  } else {
-    dat <- dat %>% filter(as.numeric(X) != 9)
-  }
-} else {
-  if (any(names(attr(dat$X, "labels")) == "Can't choose")) {
-    
-    dat<- 
-      dat %>% filter(as.character(X) != 
-                      attr(dat$X, "labels")[
-                        names(attr(dat$X, "labels")) == 
-                          "Can't choose"])
-  }
-  
-  
-  dat<- 
-    dat %>% filter(as.character(X) != 
-                     attr(dat$X, "labels")[
-                       names(attr(dat$X, "labels")) == 
-                         "Can't choose"])
-}
-
-
-# 
-# dat$XX <- as_factor(dat$X)
-# 
-# # Initialise ggplot2 object
-# g <-
-#   if (input$stratified == "None") {
-#     ggplot(dat, aes(
-#       x = XX,
-#       weight = wgt,
-#       group = 1
-#     ))
-#   } else if (input$stratified == "Gender") {
-#     ggplot(dat %>% filter(!is.na(Gender)), 
-#            aes(x = XX,
-#                weight = wgt,
-#                group = Gender
-#            ))
-#   } else if (input$stratified == "Age group") {
-#     ggplot(dat %>% filter(!is.na(Age)), aes(
-#       x = XX,
-#       weight = wgt,
-#       group = Age
-#     ))
-#   } else if (input$stratified == "Gender by Age") {
-#     ggplot(dat %>% filter(!is.na(Gender), !is.na(Age)), aes(
-#       x = XX,
-#       weight = wgt,
-#       group = interaction(Age, Gender)
-#     ))
-#   }
-# 
-# yLimits <-
-#   if (input$stratified == "None") {
-#     max(prop.table(wtd.table(dat$XX,
-#                              weights = dat$wgt)), na.rm = TRUE) + .01
-#   } else if (input$stratified == "Gender") {
-#     max(prop.table(wtd.table(dat$XX, dat$Gender,
-#                              weights = dat$wgt), 2), na.rm = TRUE) + .05
-#   } else if (input$stratified == "Age group") {
-#     max(prop.table(wtd.table(dat$XX, dat$Age,
-#                              weights = dat$wgt), 2), na.rm = TRUE) + .15
-#   } else if (input$stratified == "Gender by Age") {
-#     max(prop.table(wtd.table(
-#       dat$XX, interaction(dat$Age, dat$Gender),
-#       weights = dat$wgt
-#     ), 2), na.rm = TRUE) + .2
-#   }
-# 
-# # Adding plot here
-# g <- g +
-#   geom_bar(aes(y = ..prop.., fill = factor(..x..)),
-#            stat = "count") +
-#   geom_text(
-#     aes(label = scales::percent(..prop..),
-#         y = ..prop..),
-#     stat = "count",
-#     hjust = 0,
-#     size = 7,
-#     fontface = "bold"
-#   ) +
-#   labs(y = "Percent",  x = "") +
-#   expand_limits(y = yLimits) +
-#   scale_y_continuous(labels = scales::percent) +
-#   theme_bw() +
-#   theme(text = element_text(size = 30)) +
-#   guides(fill = "none")  +
-#   scale_x_discrete(
-#     labels = function(x)
-#       str_wrap(x, width = 30)
-#   ) +
-#   coord_flip()
 
 
 

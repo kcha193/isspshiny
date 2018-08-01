@@ -11,6 +11,11 @@ datRaw <- read_spss("ISSP2015_FINAL.sav")
 fullName <- sapply(names(datRaw)[grepl("^q",names(datRaw) )], 
                    function(x) attr(datRaw %>% pull(x), "label"))
 
+#Remove the questions C2, C2b
+
+fullName <- fullName[!names(fullName) %in%
+                       c("qlastjobendyear", "qlastjobendmonth")]
+
 fullNameForSelect <- as.character(fullName)
 
 
@@ -23,8 +28,12 @@ fullNameForSelect <-
 fullNameForSelect <- 
   fullNameForSelect[!grepl("x\\. ", fullNameForSelect)]
 
+#Remove the occupation question
+fullNameForSelect <- fullNameForSelect[-182]
 
 
+
+##################################################################
 # Fixing the qimpcanhelp variable 
 qimpcanhelpTemp <- as.numeric(datRaw$qimpcanhelp)
 
@@ -46,14 +55,14 @@ attributes(qpolwingTemp) <- attributes(datRaw$qpolwing)
 datRaw$qpolwing <- qpolwingTemp
 
 
-
-
 datRaw$qworkhours[datRaw$qworkhours==11] <- 1
 
 
 # Question F6:  ####
 
-varMove <- names(fullName[fullName %in% fullNameForSelect[grepl("F6", fullNameForSelect)]])
+varMove <- names(fullName[fullName %in%
+                            fullNameForSelect[grepl("F6",
+                                                    fullNameForSelect)]])
 
 qmoveTemp <- 
   datRaw[, c("sex", "age", "wgt", varMove[-length(varMove)])]
