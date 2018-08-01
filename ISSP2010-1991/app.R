@@ -8,9 +8,11 @@ source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/sidebar
 source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/titleOutput.R")
 
 
+
+
 # Define UI for application that draws a histogram
 ui <- dashboardPage(
-  skin = "red",
+  skin = "green",
   
   # Application title
   dashboardHeader(title = "ISSP 2010 - 1991"),
@@ -24,12 +26,13 @@ ui <- dashboardPage(
       selectize = TRUE, 
       selected = "2010"
     ),
+    h4(strong(textOutput("topic"))), 
     uiOutput("sidebarInput")), 
   
   
   # Show a plot of the generated distribution
   dashboardBody(box(
-    #tags$head(includeScript("google-analytics.js")),
+    tags$head(includeScript("google-analytics.js")),
     h2(textOutput("title")), 
     plotOutput("barPlot",  height = "800px"),
     width = 12,
@@ -41,11 +44,23 @@ ui <- dashboardPage(
 # Define server logic required to draw a plot
 server <- function(input, output) {
   
+  topics <- read.csv("topics.csv", stringsAsFactors = FALSE)
+  
+  
+  output$topic <- renderText({
+    paste("Topic:", topics$Topic[topics$Year == input$year])
+  })
+  
+  
+  
   output$sidebarInput <- renderUI({
     sidebarInputMultiYears("side", year = input$year, date = "25-07-2018")
     # <- change this for every update 
   })
   
+  
+  browser()
+
   plotOut <- callModule(plotOutWeighted, "side", 
                         dat = dat, datRaw = datRaw)
   

@@ -26,7 +26,7 @@ ui <- dashboardPage(
   
   # Show a plot of the generated distribution
   dashboardBody(box(
-    #tags$head(includeScript("google-analytics.js")),
+    tags$head(includeScript("google-analytics.js")),
     h2(textOutput("title")), 
     plotOutput("barPlot",  height = "800px"),
     width = 12,
