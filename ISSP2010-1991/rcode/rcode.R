@@ -12,7 +12,13 @@ names(fullNameList) <- names(fullNameForSelectList) <-
   names(datList) <- names(datRawList) <- 1991:2010
 
 source("rcode/getdata1991.R")
-
+source("rcode/getdata1992.R")
+source("rcode/getdata1993.R")
+source("rcode/getdata1994.R")
+source("rcode/getdata1995.R")
+source("rcode/getdata1996.R")
+source("rcode/getdata1997.R")
+source("rcode/getdata1998.R")
 source("rcode/getdata1999.R")
 source("rcode/getdata2000.R")
 source("rcode/getdata2001.R")
