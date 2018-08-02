@@ -145,19 +145,21 @@ plotOutMain <-
         } else {
           dat <- dat %>% filter(as.numeric(X) != 9)
         }
-      } else {
-        if (any(names(attr(dat$X, "labels")) == "Can't choose")) {
-          
-          dat<- 
-            dat %>% filter(as.character(X) != 
-                             attr(dat$X, "labels")[
-                               names(attr(dat$X, "labels")) == 
-                                 "Can't choose"])
-        }
+      } 
+      
+      if (any(names(attr(dat$X, "labels")) %in% 
+              c("Can't choose", "Cant choose"))) {
         
         dat<- 
-          dat %>% filter(as.character(X) != "")
+          dat %>% filter(as.character(X) != 
+                           attr(dat$X, "labels")[
+                             names(attr(dat$X, "labels")) %in% 
+                               c("Can't choose", "Cant choose")])
       }
+      
+      dat<- 
+        dat %>% filter(as.character(X) != "" | !is.na(X) )
+      
       
       
       

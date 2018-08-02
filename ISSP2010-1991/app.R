@@ -43,7 +43,6 @@ ui <- dashboardPage(
 # Define server logic required to draw a plot
 server <- function(input, output) {
   
- 
   
   topics <- read.csv("topics.csv", stringsAsFactors = FALSE)
   
@@ -53,7 +52,7 @@ server <- function(input, output) {
   sidebarInput <- 
     callModule(sidebarInputMultiYears, "side", 
                fullNameForSelectList = fullNameForSelectList,
-               date = "01-08-2018")
+               date = "02-08-2018")
   
   
   output$sidebarInputUI <- renderUI({ sidebarInput()})
