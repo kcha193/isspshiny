@@ -4,6 +4,7 @@ library(haven)
 library(tidyverse)
 library(questionr)
 
+# datRaw <- read_spss("ISSP2017/ISSP2017_FINAL.sav")
 
 datRaw <- read_spss("ISSP2017_FINAL.sav")
 
@@ -24,7 +25,31 @@ fullNameForSelect <-
   fullNameForSelect[!grepl("x\\. ", fullNameForSelect)]
 
 
+fullNameForSelect[str_which(fullNameForSelect, "^Q1[a-z]")]
 
+#Fixed Q1 
+fullNameForSelect <- 
+  str_replace(fullNameForSelect, 
+            "In circle of friends, relatives and acquaintances:", 
+            "Do you know anyone who is")
+
+#Fixed Q1 
+fullNameForSelect <- 
+  str_replace(fullNameForSelect, 
+              "In circle of friends, relatives and acquaintances:", 
+              "Do you know anyone who is")
+
+#Fixed Q2 
+fullNameForSelect <- 
+  str_replace(fullNameForSelect, 
+              "(^Q2[a-z].)", 
+              "\\1 How much do you agree that")
+
+#Fixed Q26 
+fullNameForSelect <- 
+  str_replace(fullNameForSelect, 
+              "Health status in general", 
+              "In general, would you say your health is")
 
 
 # Fixing some questions #################################
@@ -37,7 +62,6 @@ newLabel <- c(0:10, 99)
 names(newLabel) <- c(names(labelTemp)[1], 1:9, names(labelTemp)[2:3])
 
 attr(datRaw$qtrustcourts, "labels") <- newLabel
-
 
 # qtaxpayeduhealth
 labelTemp <- attr(datRaw$qtrustcompanies, "labels")
