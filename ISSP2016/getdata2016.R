@@ -5,6 +5,8 @@ library(tidyverse)
 library(questionr)
 
 
+#datRaw <- read_spss("ISSP2016/ISSP2016_FINAL.sav")
+
 datRaw <- read_spss("ISSP2016_FINAL.sav")
 
 #Fetch the names of dataset
@@ -47,6 +49,33 @@ fullName[names(fullName) == "qgovtapph"] <-
 #Remove qrefanythingelse
 
 fullName <- fullName[!as.character(names(fullName)) %in% "qrefanythingelse"]
+
+
+#Fixed names in A11
+
+fullName[grep("^A11", fullName)] <- 
+  "A11. Is the government's transferring responsibility for some state housing to non-government agencies an appropriate was an appropriate way to manage social housing for low-income New Zealanders?"
+
+fullName[grep("^A14", fullName)] <- 
+  "A14. Should government require working-age benefit recipients to meet work-related obligations with financial penalties for non-compliance?"
+
+fullName[grep("^A15", fullName)] <- 
+  "A15. Should government require benefit recipients with children to meet social obligations with financial penalties for non-compliance?"
+
+fullName[grep("^A19", fullName)] <- 
+  "A19. Should all government information be publicly available or should public security be given priority where this meant limiting access to government information?"
+
+fullName[grep("^A29", fullName)] <- 
+  paste0(fullName[grep("^A29", fullName)], "ion in society?")
+
+fullName[grep("^A33", fullName)] <- 
+  paste0(fullName[grep("^A33", fullName)], " return for a service?")
+
+fullName[grep("^B3d", fullName)] <- 
+  paste0(fullName[grep("^B3d", fullName)], "?")
+
+fullName[grep("^B4d", fullName)] <- 
+  paste0(fullName[grep("^B4d", fullName)], "cument?")
 
 
 fullNameForSelect <- as.character(fullName)

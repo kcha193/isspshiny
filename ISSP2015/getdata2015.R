@@ -5,11 +5,84 @@ library(tidyverse)
 library(questionr)
 
 
+# datRaw <- read_spss("ISSP2015/ISSP2015_FINAL.sav")
+
+
 datRaw <- read_spss("ISSP2015_FINAL.sav")
 
 #Fetch the names of dataset
 fullName <- sapply(names(datRaw)[grepl("^q",names(datRaw) )], 
                    function(x) attr(datRaw %>% pull(x), "label"))
+
+abb <- names(fullName)
+
+#Fixed A1 
+fullName <- 
+  str_replace(fullName, 
+              "(^A1[a-z].)", 
+              "\\1 How much do you agree")
+
+#Fixed A8 
+fullName <- 
+  str_replace(fullName, 
+              "(^A8[a-z].)", 
+              "\\1 How much do you agree")
+
+#Fixed B2 
+fullName <- 
+  str_replace(fullName, 
+              "(^B2[a-z].)", 
+              "\\1 How much do you agree")
+
+#Fixed B13 
+fullName <- 
+  str_replace(fullName, 
+              "(^B13[a-z].)", 
+              "\\1 How much do you agree")
+
+#Fixed B14 
+fullName <- 
+  str_replace(fullName, 
+              "(^B14[a-z].)", 
+              "\\1 How much do you agree")
+
+#Fixed B18 
+fullName <- 
+  str_replace(fullName, 
+              "(^B18[a-z].)", 
+              "\\1 How much do you agree")
+
+#Fixed C8 
+fullName <- 
+  str_replace(fullName, 
+              "(^C8[a-z].)", 
+              "\\1 How much do you agree")
+
+
+#Fixed D5 
+fullName <- 
+  str_replace(fullName, 
+              "(^D5[a-z].)", 
+              "\\1 How much do you agree")
+
+#Fixed E6 
+fullName <- 
+  str_replace(fullName, 
+              "(^E6[a-z].)", 
+              "\\1 How much do you agree")
+
+#Fixed E14 
+fullName <- 
+  str_replace(fullName, 
+              "(^E14[a-z].)", 
+              "\\1 How much do you agree")
+
+
+
+names(fullName) <- abb
+
+
+
 
 #Remove the questions C2, C2b
 

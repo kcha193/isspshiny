@@ -19,7 +19,7 @@ ui <- dashboardPage(
   
   # Sidebar with a slider input for number of bins
   dashboardSidebar(sidebarInput("side",
-          date = "27-07-2018")), # <- change this for every update 
+          date = "7-2-2019")), # <- change this for every update 
   
   # Show a plot 
   dashboardBody(box(

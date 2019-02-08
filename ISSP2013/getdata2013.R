@@ -5,11 +5,144 @@ library(tidyverse)
 library(questionr)
 
 
+# datRaw <- read_spss("ISSP2013/ISSP2013 National Identity III weighting 20160726.sav")
+
+
 datRaw <- read_spss("ISSP2013 National Identity III weighting 20160726.sav")
 
 #Fetch the names of dataset
 fullName <- sapply(names(datRaw)[grepl("^k",names(datRaw) )], 
                    function(x) attr(datRaw %>% pull(x), "label"))
+
+abb <- names(fullName)
+
+fullName <- as.character(fullName)
+
+#Fixed A3 
+fullName <- 
+  str_replace(fullName, 
+              "(^A3[a-z].)", 
+              "\\1 How much do you agree that")
+
+
+#Fixed A5 
+fullName <- 
+  str_replace(fullName, 
+              "(^A5.)", 
+              "\\1 Do you")
+
+#Fixed A6 
+fullName <- 
+  str_replace(fullName, 
+              "(^A6.)", 
+              "\\1 Do you")
+
+
+#Fixed A7 
+fullName <- 
+  str_replace(fullName, 
+              "(^A7ai.)", 
+              "\\1 How much do you agree that")
+
+fullName <- 
+  str_replace(fullName, 
+              "(^A7aii.)", 
+              "\\1 How much do you agree that")
+
+fullName <- 
+  str_replace(fullName, 
+              "(^A7bi.)", 
+              "\\1 How much do you agree that")
+
+fullName <- 
+  str_replace(fullName, 
+              "(^A7bii.)", 
+              "\\1 How much do you agree that")
+
+fullName <- 
+  str_replace(fullName, 
+              "(^A7biii.)", 
+              "\\1 How much do you agree that")
+
+fullName <- 
+  str_replace(fullName, 
+              "(^A7biv.)", 
+              "\\1 How much do you agree that")
+
+#Fixed B1 and B2
+fullName <- 
+  str_replace(fullName, 
+              "(^B1[a-z].)", 
+              "\\1 How much do you agree that")
+
+fullName <- 
+  str_replace(fullName, 
+              "(^B2[a-z].)", 
+              "\\1 How much do you agree that")
+
+
+#Fixed C1 and C2 and C3
+fullName <- 
+  str_replace(fullName, 
+              "(^C1[a-z].)", 
+              "\\1 How much do you agree that")
+
+fullName <- 
+  str_replace(fullName, 
+              "(^C2.)", 
+              "\\1 Do you")
+
+fullName <- 
+  str_replace(fullName, 
+              "(^C3[a-z].)", 
+              "\\1 How much do you agree that")
+
+fullName <- 
+  str_replace(fullName, 
+              "(^C4.)", 
+              "\\1 Do you think")
+
+fullName <- 
+  str_replace(fullName, 
+              "(^C5.)", 
+              "\\1 Do you think")
+
+
+#Fixed D2
+fullName <- 
+  str_replace(fullName, 
+              "(^D2[a-z].)", 
+              "\\1 How much do you agree that")
+
+
+#Fixed E1-5
+fullName <- 
+  str_replace(fullName, 
+              "(^E1[a-z].)", 
+              "\\1 How much do you agree that")
+
+fullName <- 
+  str_replace(fullName, 
+              "(^E2[a-z].)", 
+              "\\1 How much do you agree that")
+
+fullName <- 
+  str_replace(fullName, 
+              "(^E3[a-z].)", 
+              "\\1 How much do you agree that")
+
+fullName <- 
+  str_replace(fullName, 
+              "(^E4[a-z].)", 
+              "\\1 How much do you agree that")
+
+fullName <- 
+  str_replace(fullName, 
+              "(^E5[a-z].)", 
+              "\\1 How much do you agree that")
+
+
+names(fullName) <- abb
 
 fullNameForSelect <- as.character(fullName)
 
