@@ -35,8 +35,9 @@ sidebarInput <- function(id, date = "01-08-2018") {
       h4(date),
       h4("Contact email:"),
       h5(a("Barry Milne", href = "mailto:b.milne@auckland.ac.nz")),
-      h5(a("Kevin Chang", href = "mailto:k.chang@auckland.ac.nz")),
+      #h5(a("Kevin Chang", href = "mailto:k.chang@auckland.ac.nz")),
       h5(a("Martin von Randow", href = "mailto:m.vonrandow@auckland.ac.nz")),
+      h5(a("Eileen Li", href = "mailto:y.li@auckland.ac.nz")),
       width = 12,
       background = "black"
     ), 
