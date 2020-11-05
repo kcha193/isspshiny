@@ -1,0 +1,55 @@
+---
+title: ISSP 2017 -- Social Networks
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    social: menu
+    source_code: embed
+    theme: simplex
+  runtime: shiny
+---
+
+
+
+```{r setup, include=FALSE}
+library(shiny)
+library(flexdashboard)
+library(knitr)
+
+source("getdata2017.R")
+
+source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/plotsOutput.R")
+source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/sidebarInput.R")
+source("https://raw.githubusercontent.com/kcha193/isspshiny/master/Rcode/titleOutput.R")
+
+
+```
+
+Column {.sidebar}
+-----------------------------------------------------------------------
+
+```{r}
+renderUI({
+sidebarInput("side",
+          date = "27-07-2018")
+  
+})
+
+```
+
+
+
+Column
+-----------------------------------------------------------------------
+
+###  
+
+```{r}
+
+plotOut <- 
+  callModule(plotOutWeighted, "side", dat, datRaw)
+
+  
+renderPlot({plotOut()})
+```
+
