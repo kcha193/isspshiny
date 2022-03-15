@@ -87,7 +87,7 @@ plotOutWeighted <-
           geom_bar(aes(y = ..prop.., fill = factor(..x..)),
                    stat = "count") +
           geom_text(
-            aes(label = scales::percent(..prop.., accuracy = 0.01),
+            aes(label = scales::percent(..prop..),
                 y = ..prop..),
             stat = "count",
             hjust = 0,
