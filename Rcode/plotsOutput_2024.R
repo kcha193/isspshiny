@@ -84,7 +84,7 @@ plotOutWeighted <-
         
         # Adding plot here
         g <- g +
-          geom_bar(aes(y = after_stat(prop), fill = factor(..x..)),
+          geom_bar(aes(y = after_stat(prop), fill = factor(after_stat(x))),
                    stat = "count") +
           geom_text(
             aes(label = scales::percent(after_stat(prop), accuracy = 0.1),
@@ -256,7 +256,7 @@ plotOutMain <-
       
       # Adding plot here
       g <- g +
-        geom_bar(aes(y = after_stat(prop), fill = factor(..x..)),
+        geom_bar(aes(y = after_stat(prop), fill = factor(after_stat(x))),
                  stat = "count") +
         geom_text(
           aes(label = scales::percent(after_stat(prop)),
@@ -431,7 +431,7 @@ plotOutWeighted2015 <-
         
         # Adding plot here
         g <- g +
-          geom_bar(aes(y = after_stat(prop), fill = factor(..x..)),
+          geom_bar(aes(y = after_stat(prop), fill = factor(after_stat(x))),
                    stat = "count") +
           geom_text(
             aes(label = scales::percent(after_stat(prop)),
